@@ -18,4 +18,10 @@ class Product extends Model
     {
         return $this->hasOne(Color::class);
     }
+    public function scopeFilter($query, array $filters) 
+    {
+        $query->when($filters["gender"] ?? false, function ($query,$gender)  {
+            $query->where("gender", $gender);
+        });
+    }
 }

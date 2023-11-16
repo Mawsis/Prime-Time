@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('desc')->nullable();
             $table->float('price');
+            $table->string('image')->nullable();
             $table->integer('quantity')->unsigned()->default(0);
             $table->foreignId('color_id');
             $table->enum('gender', ['male','female','unisex'])->default('male');
