@@ -21,7 +21,18 @@ class Product extends Model
     public function scopeFilter($query, array $filters) 
     {
         $query->when($filters["gender"] ?? false, function ($query,$gender)  {
-            $query->where("gender", $gender);
+            $query->when($gender!=='all', function ($query) use($gender){
+                $query->where("gender", $gender);
+            });
+        });
+        $query->when($filters["priceMax"] ?? false, function ($query,$price)  {
+            $query->where("price","<=",$price);
+        });
+        $query->when($filters["priceMin"] ?? false, function ($query,$price)  {
+            $query->where("price",">=",$price);
+        });
+        $query->when($filters["search"] ?? false, function ($query,$search)  {
+            $query->where("name","like","%$search%");
         });
     }
 }

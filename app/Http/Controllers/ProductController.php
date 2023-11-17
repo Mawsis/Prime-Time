@@ -9,7 +9,7 @@ class ProductController extends Controller
     public function index()
     {
         return view("product.index",[
-            "products"=>Product::filter(request(['gender']))->get()
+            "products"=>Product::filter(request(['gender','price']))->get()
         ]);
     }
 }
