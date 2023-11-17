@@ -7,15 +7,28 @@ use Livewire\Component;
 
 class Filter extends Component
 {
-    public $priceMax = 15000;
-    public $priceMin = 0;
+    
     public $gender ='all';
+    public $priceMin = 0;
+    public $priceMax = 15000;
     public $search = '';
-    public function applyFilters()
-    {
-        $this->reset();
-    }
 
+    protected function queryString(){
+        return [
+            'gender' => [
+                'as' => 'g'
+            ],
+            'priceMin' => [
+                'as' => 'min'
+            ],
+            'priceMax' => [
+                'as' => 'max'
+            ],
+            'search' => [
+                'as' => 's'
+            ],
+            ];
+    }
     public function render()
     {
         return view('livewire.filter',[

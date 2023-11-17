@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get("/collection",[ProductController::class,"index"])->name("collection");
+Route::get("/collection/{product:slug}",[ProductController::class,"show"]);
 

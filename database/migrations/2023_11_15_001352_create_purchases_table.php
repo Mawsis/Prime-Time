@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id');
             $table->foreignId('user_id');
+            $table->enum('status', ['delivered','pending','shipping'])->default("shipping");
             $table->timestamps();
         });
     }
