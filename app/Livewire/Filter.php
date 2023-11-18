@@ -26,7 +26,7 @@ class Filter extends Component
                 'as' => 'max'
             ],
             'search' => [
-                'as' => 's'
+                'as' => 'q'
             ],
             ];
     }
