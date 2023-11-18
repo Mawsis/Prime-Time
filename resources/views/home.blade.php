@@ -6,13 +6,21 @@
           <div class=" text-left">Prime</div>
           <div class="text-gold text-right font-semibold" style="font-family: 'Playfair Display';">Time</div>
         </div>
-          <div class="flex justify-between col-span-6 col-start-4 text-white py-3">
-            <h3><a href="/collection" class="hover:text-gold transition-all"> Collection </a></h3>
-            <h3><a href="#" class="hover:text-gold transition-all"> Men</a></h3>
-            <h3><a href="#" class="hover:text-gold transition-all"> Women</a></h3>
-            <h3><a href="#" class="hover:text-gold transition-all"> Accessories</a></h3>
-            <h3><a href="#" class="hover:text-gold transition-all"> New</a></h3>
-          </div>
+        <div class="flex justify-between col-span-6 col-start-4 text-white py-3">
+          <h3><a href="/collection" class="hover:text-gold transition-all"> Collection </a></h3>
+          <h3><a href="#" class="hover:text-gold transition-all"> Men</a></h3>
+          <h3><a href="#" class="hover:text-gold transition-all"> Women</a></h3>
+          <h3><a href="#" class="hover:text-gold transition-all"> Accessories</a></h3>
+          <h3><a href="#" class="hover:text-gold transition-all"> New</a></h3>
+        </div>
+        <div class=" col-start-12 flex justify-center items-center space-x-6 text-white">
+          @auth
+            <h1>Profile</h1>
+          @else
+            <a href="/register"><h1>Sign Up</h1></a>
+            <a href="/login"><h1>Sign In</h1></a>
+          @endauth
+        </div>
       </div>
       <div class="flex flex-col justify-center items-center pt-[38vh]">
         <div class="text-white font-semibold text-5xl text-center opacity-80">

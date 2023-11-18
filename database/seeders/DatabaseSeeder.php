@@ -16,9 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $wassim = User::factory()->create([
+            "name"=> "Wassim",
+            "email"=> "wassimkh448@gmail.com",
+            "password"=>"123456",
+        ]);
+
         Color::factory(10)->create();
         User::factory(10)->create();
         Product::factory(10)->create();
-        Purchase::factory(10)->create();
+        Purchase::factory(10)->create(['user_id'=>$wassim->id]);
     }
 }
