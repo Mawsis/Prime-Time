@@ -10,6 +10,7 @@ class Filter extends Component
 {
     use WithPagination;
     public $gender ='all';
+    public $trending ='all';
     public $priceMin = 0;
     public $priceMax = 15000;
     public $search = '';
@@ -28,12 +29,19 @@ class Filter extends Component
             'search' => [
                 'as' => 'q'
             ],
-            ];
+            'trending'=> [
+                'as'=> 't'
+            ],
+        ];
+    }
+    public function applyFilter()
+    {
+        $this->resetPage();
     }
     public function render()
     {
         return view('livewire.filter',[
-            'products'=>Product::filter(["gender"=>$this->gender,"priceMin"=>$this->priceMin,"priceMax"=>$this->priceMax,"search"=>$this->search])->simplePaginate(6)->withQueryString()
+            'products'=>Product::filter(["gender"=>$this->gender,"priceMin"=>$this->priceMin,"priceMax"=>$this->priceMax,"search"=>$this->search,"trending"=>$this->trending])->simplePaginate(6)->withQueryString()
         ]);
     }
 }

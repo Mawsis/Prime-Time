@@ -7,7 +7,7 @@
     </a>
     <div class="flex justify-center items-center bg-black h-screen text-white">
         <div class="absolute m-auto top-0 bottom-0 right-0 left-0 bg-gray border border-gold w-2/5 h-3/5">
-            <form action="/login" method="post" class="flex flex-col justify-center items-center p-8 space-y-10">
+            <form action="/login" method="post" class="flex flex-col justify-center items-center p-8 xl:space-y-5 2xl:space-y-10">
                 <h1 class="text-3xl text-gold">Login</h1>
                 @csrf
                 <div class="mb-6 w-full">
@@ -15,7 +15,7 @@
                     <input placeholder="Email" class="border border-gold p-2 w-full text-black" required type="email" name="email" id="" value="{{ old('email') }}">
                     @error('email')
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                    @enderror required
+                    @enderror
                 </div>
                 <div class="mb-6 w-full">
                     <label for="password" class="block mb—2 uppercase font—bold text-gold">password</label>
@@ -24,8 +24,9 @@
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
+                <a class="text-sm underline text-gold" href="/signup">Or Sign Up.</a>
                 <h3 class="text-xl text-gold">We are happy to give you the time.</h3>
-                <div class="flex justify-center items-center pt-8">
+                <div class="flex justify-center items-center pt-6">
                     <button class="bg-gold px-8 py-4 text-black border border-black hover:bg-black hover:text-gold hover:border-gold"
                      type="submit">Login</button>
                 </div>

@@ -8,14 +8,18 @@
         </div>
         <div class="flex justify-between col-span-6 col-start-4 text-white py-3">
           <h3><a href="/collection" class="hover:text-gold transition-all"> Collection </a></h3>
-          <h3><a href="#" class="hover:text-gold transition-all"> Men</a></h3>
-          <h3><a href="#" class="hover:text-gold transition-all"> Women</a></h3>
+          <h3><a href="/collection?g=male" class="hover:text-gold transition-all"> Men</a></h3>
+          <h3><a href="/collection?g=female" class="hover:text-gold transition-all"> Women</a></h3>
           <h3><a href="#" class="hover:text-gold transition-all"> Accessories</a></h3>
           <h3><a href="#" class="hover:text-gold transition-all"> New</a></h3>
         </div>
-        <div class=" col-start-12 flex justify-center items-center space-x-6 text-white">
+        <div class=" col-start-11 col-span-2 flex justify-center items-center space-x-8 text-white">
           @auth
-            <h1>Profile</h1>
+          <a href="/profile"><h1>Profile</h1></a>
+          <form action="/logout" method="post" >
+            @csrf
+            <input type="submit" value="Logout" class=" cursor-pointer">
+          </form>
           @else
             <a href="/register"><h1>Sign Up</h1></a>
             <a href="/login"><h1>Sign In</h1></a>

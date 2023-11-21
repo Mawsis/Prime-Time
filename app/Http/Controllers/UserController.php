@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
+use App\Models\Purchase;
 
 class UserController extends Controller
 {
@@ -28,6 +29,9 @@ class UserController extends Controller
 
     public function show()
     {
-        return view("user.show");
+        return view("user.show",[
+            "user"=>auth()->user(),
+            "purchases"=> Purchase::with("product")->find(["user_id"=> auth()->user()->id])
+        ]);
     }
 }

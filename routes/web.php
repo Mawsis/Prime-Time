@@ -24,10 +24,11 @@ Route::get("/collection",[ProductController::class,"index"])->name("collection")
 Route::get("/collection/{product:slug}",[ProductController::class,"show"]);
 
 Route::get("/register",[UserController::class,"create"])->middleware('guest');
-Route::post("/register",[UserController::class,"store"]);
+Route::post("/register",[UserController::class,"store"])->middleware('guest');
 
-Route::get("/login",[SessionController::class,"create"])->middleware('guest');
-Route::post("/login",[SessionController::class,"store"]);
+Route::get("/login",[SessionController::class,"create"])->middleware('guest')->name('login');
+Route::post("/login",[SessionController::class,"store"])->middleware('guest');
+Route::post("/logout",[SessionController::class,"destroy"])->middleware("auth");
 
 Route::get("/profile",[UserController::class,"show"])->middleware('auth');
 

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
@@ -17,6 +18,10 @@ class Product extends Model
     public function color() : HasOne
     {
         return $this->hasOne(Color::class);
+    }
+    public function purchases() : BelongsToMany
+    {
+        return $this->belongsToMany(Product::class,"purchases");
     }
     public function scopeFilter($query, array $filters) 
     {
@@ -34,5 +39,24 @@ class Product extends Model
         $query->when($filters["search"] ?? false, function ($query,$search)  {
             $query->where("name","like","%$search%");
         });
+        $query->when($filters["trending"] ?? false, function ($query,$time) {
+            $query->when(($time === "trending") &&($time !== 'all'), function ($query) {
+                $query->select("products.*",
+                    DB::raw('COUNT(purchases.id) as purchase_count')
+                )
+                ->join('purchases', 'products.id', '=', 'purchases.product_id')
+                ->groupBy('products.id')
+                ->orderByDesc('purchase_count');
+            });
+            $query->when(($time === "unique") &&($time !== 'all'), function ($query) {
+                $query->select("products.*",
+                    DB::raw('COUNT(purchases.id) as purchase_count')
+                )
+                ->join('purchases', 'products.id', '=', 'purchases.product_id')
+                ->groupBy('products.id')
+                ->orderBy('purchase_count','asc');
+                });
+            });
+
     }
 }
