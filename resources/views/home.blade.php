@@ -10,8 +10,7 @@
           <h3><a href="/collection" class="hover:text-gold transition-all"> Collection </a></h3>
           <h3><a href="/collection?g=male" class="hover:text-gold transition-all"> Men</a></h3>
           <h3><a href="/collection?g=female" class="hover:text-gold transition-all"> Women</a></h3>
-          <h3><a href="#" class="hover:text-gold transition-all"> Accessories</a></h3>
-          <h3><a href="#" class="hover:text-gold transition-all"> New</a></h3>
+          <h3><a href="/collection?t-trending" class="hover:text-gold transition-all"> Trending</a></h3>
         </div>
         <div class=" col-start-11 col-span-2 flex justify-center items-center space-x-8 text-white">
           @auth

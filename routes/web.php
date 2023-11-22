@@ -3,6 +3,7 @@
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 
@@ -31,4 +32,6 @@ Route::post("/login",[SessionController::class,"store"])->middleware('guest');
 Route::post("/logout",[SessionController::class,"destroy"])->middleware("auth");
 
 Route::get("/profile",[UserController::class,"show"])->middleware('auth');
+
+Route::post("/purchase",[PurchaseController::class,"store"])->middleware("auth");
 

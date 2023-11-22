@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $product = Product::factory()->create();
         Purchase::factory(10)->create([
-            "product_id"=>$product->id
+            "user_id"=>$wassim->id
         ]);
         Color::factory(10)->create();
         User::factory(10)->create();

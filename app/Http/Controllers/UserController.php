@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         return view("user.show",[
             "user"=>auth()->user(),
-            "purchases"=> Purchase::with("product")->find(["user_id"=> auth()->user()->id])
+            "purchases"=> Purchase::where(["user_id"=> auth()->user()->id])->with('product')->get()
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\DB;
@@ -15,9 +16,9 @@ class Product extends Model
     {
         return $this->belongsToMany(User::class,"purchases");
     }
-    public function color() : HasOne
+    public function color() : BelongsTo
     {
-        return $this->hasOne(Color::class);
+        return $this->belongsTo(Color::class);
     }
     public function purchases() : BelongsToMany
     {

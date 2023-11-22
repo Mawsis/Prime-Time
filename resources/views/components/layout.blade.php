@@ -13,5 +13,6 @@
 </head>
 <body class=" font-mont">
     {{ $slot }}
+    <x-flash/>
 </body>
 </html>
