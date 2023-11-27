@@ -14,14 +14,14 @@
         </div>
         <div class=" col-start-11 col-span-2 flex justify-center items-center space-x-8 text-white">
           @auth
-          <a href="/profile"><h1>Profile</h1></a>
+          <a href="/profile" class="hover:text-gold transition-all"><h1>Profile</h1></a>
           <form action="/logout" method="post" >
             @csrf
-            <input type="submit" value="Logout" class=" cursor-pointer">
+            <input type="submit" value="Logout" class=" cursor-pointer hover:text-gold transition-all">
           </form>
           @else
-            <a href="/register"><h1>Sign Up</h1></a>
-            <a href="/login"><h1>Sign In</h1></a>
+            <a href="/register" class="hover:text-gold transition-all"><h1>Sign Up</h1></a>
+            <a href="/login" class="hover:text-gold transition-all"><h1>Sign In</h1></a>
           @endauth
         </div>
       </div>

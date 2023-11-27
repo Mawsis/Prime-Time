@@ -13,6 +13,6 @@ class PurchaseController extends Controller
             "user_id"=>auth()->user()->id,
             "product_id"=>request("product"),
         ]);
-        redirect("/")->with("success","Purchased With Success");
+        return redirect("/")->with("success","Purchased With Success");
     }
 }

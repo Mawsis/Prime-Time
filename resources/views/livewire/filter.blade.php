@@ -17,13 +17,13 @@
                 <div class="flex justify-center items-center space-x-1">
                     <label for="priceMin" class="block mb-2 text-sm font-medium text-white">Price Min</label>
                     <input id="priceMin" type="range" class="w-full h-2 bg-white rounded-lg appearance-none cursor-pointer" 
-                    wire:model="priceMin" wire:change='applyFilter'  name="priceMin" min="1" max="15000">
+                    wire:model.live="priceMin" wire:change='applyFilter'  name="priceMin" min="1" max="15000">
                     <div>{{ $priceMin }}</div>
                 </div>                
                 <div class="flex justify-center items-center space-x-1">
                     <label for="priceMax" class="block mb-2 text-sm font-medium text-white">Price Max</label>
                     <input id="priceMax" type="range" class="w-full h-2 bg-white rounded-lg appearance-none cursor-pointer" 
-                    wire:model="priceMax" wire:change='applyFilter'  name="priceMax" min="1" max="15000">
+                    wire:model.live="priceMax" wire:change='applyFilter'  name="priceMax" min="1" max="15000">
                     <div>{{ $priceMax }}</div>
                 </div>                
 

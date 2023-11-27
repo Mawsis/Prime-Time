@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             "name"=> "Wassim",
             "email"=> "wassimkh448@gmail.com",
             "password"=>"123456",
+            "isAdmin"=>true
         ]);
         $product = Product::factory()->create();
         Purchase::factory(10)->create([

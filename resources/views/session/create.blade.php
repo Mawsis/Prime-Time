@@ -24,7 +24,7 @@
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
-                <a class="text-sm underline text-gold" href="/signup">Or Sign Up.</a>
+                <a class="text-sm underline text-gold" href="/register">Or Sign Up.</a>
                 <h3 class="text-xl text-gold">We are happy to give you the time.</h3>
                 <div class="flex justify-center items-center pt-6">
                     <button class="bg-gold px-8 py-4 text-black border border-black hover:bg-black hover:text-gold hover:border-gold"

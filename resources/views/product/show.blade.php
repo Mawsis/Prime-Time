@@ -32,7 +32,7 @@
             <div class="flex border border-gold w-1/2 items-center justify-center aspect-square">
                 <img src="{{ asset("/storage/" . $product->image) }}" class="object-cover h-full w-full object-center">
             </div>
-            <div class="flex flex-col my-10 lg 2xl:space-y-24 xl:space-y-12 w-1/2">
+            <div class="flex flex-col my-10 lg 2xl:space-y-24 xl:space-y-9 w-1/2">
                 <h1 class="font-bold text-7xl text-yellow font-play">{{ round($product->price) }}$</h1>
                 <h2 class="text-6xl">{{ $product->name }}</h2>
                 <div class="flex space-x-9">
